@@ -39,6 +39,20 @@ import modelli.Utentegenerico;
 			utentegenerico.setIndirizzomail(riga[9]);
 			return t;
 		}
+		
+		public boolean TesseratoEsiste (Tesserato t)
+		{
+			String username = t.getUsername();
+			String pass =t.getPass();
+			ArrayList<String[]> result = DbConnection.getInstance().eseguiQuery("SELECT username,pass FROM tesserato WHERE username='"+username+"' and pass='"+pass+"' ");
+			
+			
+			if(result.isEmpty()) 
+				return(false);
+			else
+				return(true);
+		}
+
 	}
 
 

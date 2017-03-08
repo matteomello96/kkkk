@@ -19,4 +19,8 @@ public int getMatricolatesserato() {
 		return TesseratoDAO.getInstance().CercaperMatricola(matricolatesserato);
 	}
 	
+	public boolean login()
+	{
+	  return TesseratoDAO.getInstance().TesseratoEsiste(this);
 	}
+}

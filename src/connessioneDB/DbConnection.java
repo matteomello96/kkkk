@@ -17,8 +17,9 @@ public class DbConnection {
    public static DbConnection getInstance() {
 	   if(instance == null)
 		   instance = new DbConnection();
-	   if(connesso != true)
-			connetti("centropolisportivo", "root", "Bla.bla.12");
+	   if(connesso != true);
+		   String connectionURL = "jdbc:mysql://localhost:3306/centropolisportivo?autoReconnect=true&useSSL=false";
+			connetti(connectionURL, "root", "Bla.bla.12");
 	   return instance;
    }
    
