@@ -8,8 +8,8 @@ public class Utentegenerico
 	private String via;
 	private String numerocivico;
 	private String cittaresidenza;
-    private String username;
-    private String pass;
+    protected String username;
+    protected String pass;
     private String numerotelefono;
     private String indirizzomail;
     

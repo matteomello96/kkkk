@@ -13,7 +13,7 @@ public static Tesseratobusiness getInstance()
 
 public boolean verificaTesserato (String username,String pass)
 {
-	Tesserato t =new Tesserato();
+	Tesserato t =new Tesserato(username,pass);
 	return t.login();
 }
 }

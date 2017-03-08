@@ -1,4 +1,6 @@
 package connessioneDB;
+import java.sql.*;
+
 
 /*
  * Classe dedicata alla gestione del Database.
@@ -17,13 +19,12 @@ public class DbConnection {
    public static DbConnection getInstance() {
 	   if(instance == null)
 		   instance = new DbConnection();
-	   if(connesso != true);
-		   String connectionURL = "jdbc:mysql://localhost:3306/centropolisportivo?autoReconnect=true&useSSL=false";
-			connetti(connectionURL, "root", "Bla.bla.12");
+	   if(connesso != true)
+			connetti("centropolisportivo", "root", "Bla.bla.12");
 	   return instance;
    }
    
-   // Apre la connessione con il Database//
+   // Apre la connessione con il Database
    public static boolean connetti(String nomeDB, String nomeUtente, String pwdUtente) {
 
 	  connesso = false;
@@ -46,7 +47,7 @@ public class DbConnection {
    // ritorna un Vector contenente tutte le tuple del risultato
    public ArrayList<String[]> eseguiQuery(String query) {
 	   ArrayList<String[]> v = null;
-      Object[] record;
+      String [] record;
       int colonne = 0;
       try {
          Statement stmt = db.createStatement();     // Creo lo Statement per l'esecuzione della query
@@ -56,7 +57,7 @@ public class DbConnection {
          colonne = rsmd.getColumnCount();
 
          while(rs.next()) {   // Creo il vettore risultato scorrendo tutto il ResultSet
-            record = new Object[colonne];
+            record = new String[colonne];
             for (int i=0; i<colonne; i++) record[i] = rs.getString(i+1);
             v.add( (String[]) record.clone() );
          }
@@ -71,8 +72,7 @@ public class DbConnection {
    // query: una stringa che rappresenta un'istuzione SQL di tipo UPDATE da eseguire
    // ritorna TRUE se l'esecuzione e' adata a buon fine, FALSE se c'e' stata un'eccezione
    public boolean eseguiAggiornamento(String query) {
-      @SuppressWarnings("unused")
-	int numero = 0;
+      int numero = 0;
       boolean risultato = false;
       try {
          Statement stmt = db.createStatement();

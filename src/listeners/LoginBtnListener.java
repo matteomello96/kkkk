@@ -30,7 +30,7 @@ private LoginWindows2 loginWindows2;
         new vistaTesserato();
         loginWindows2.dispose();
             }
-        else{
+        else{JOptionPane.showMessageDialog(null, "Utente non presente!");
              
         }
  

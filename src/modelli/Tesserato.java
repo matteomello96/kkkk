@@ -1,12 +1,21 @@
 package modelli;
 
 import dao.TesseratoDAO;
+import modelli.Utentegenerico;
+
 
 
 public class Tesserato extends Utentegenerico{
 	
 	private int matricolatesserato;
 	
+	
+
+public Tesserato(String username, String pass) {
+	super();
+    this.username=username;
+    this.pass=pass;
+	}
 
 public int getMatricolatesserato() {
 		return matricolatesserato;
@@ -23,4 +32,10 @@ public int getMatricolatesserato() {
 	{
 	  return TesseratoDAO.getInstance().TesseratoEsiste(this);
 	}
+	
+	class Tesseratologin{
+		String username;
+		String pass;
+		
+	};
 }
