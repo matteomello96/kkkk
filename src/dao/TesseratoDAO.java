@@ -18,7 +18,7 @@ import modelli.Utentegenerico;
 
 		public Tesserato CercaperMatricola(int matricolatesserato) {
 			
-			Tesserato t = new Tesserato();
+			Tesserato t = new Tesserato(null, null);
 			
 			ArrayList<String[]> result = DbConnection.getInstance().eseguiQuery("SELECT * FROM tesserato WHERE matricolatesserato='"+matricolatesserato+"' ");
 			

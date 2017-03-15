@@ -11,7 +11,7 @@ import connessioneDB.DbConnection;
 import dao.CalendarioDAO;
 import modelli.Calendario;
 import modelli.Disciplina;
-import modelli.Livello;
+
 
 
 
@@ -37,16 +37,24 @@ import modelli.Livello;
 			String[] riga = result.get(0);
 			
 			dis.setNomedisciplina(riga[0]);
-			dis.setCostomensile(Float.parseFloat(riga[1]));
-			dis.setMaxiscrittiturno(Integer.parseInt(riga[2]));
+			
 			dis.setImmagine((Object)riga[3]);
 			Calendario calendario = CalendarioDAO.getInstance().CercaperNome(riga[4]);
 			dis.setCalendario(calendario);
-			Livello livello = LivelloDAO.getInstance().CercaperNome(riga[5]);
-			dis.setLivello(livello);
+			
+
 			
 			return dis;
 		}
+public boolean InserisciDisciplina(Disciplina disciplina) {
+			
+			//nomecalendario,annovalidita
+			String sql = "INSERT INTO disciplina VALUES('" +disciplina.getNomedisciplina()+ "', "+ disciplina.getDescrizione() +",'" +disciplina.getImmagine()+ "','" +disciplina.getCalendario().getNomecalendario()+ "', )";
+			System.out.println(sql);
+			return DbConnection.getInstance().eseguiAggiornamento(sql);
+			
+		}
+		
 	}
 
 

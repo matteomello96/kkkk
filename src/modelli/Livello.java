@@ -2,6 +2,7 @@ package modelli;
 
 
 
+
 import dao.LivelloDAO;
 
 public class Livello {
@@ -18,6 +19,8 @@ public void setNomelivello(String nomelivello) {
 public static Livello CercaLivelloperNome(String nomelivello) {
 	return LivelloDAO.getInstance().CercaperNome(nomelivello);
 }
-
+public boolean InserisciLivello() {
+	return LivelloDAO.getInstance().InserisciLivello(this);
+}
 
 }

@@ -1,6 +1,8 @@
 package dao;
 import java.util.ArrayList;
-	import modelli.Livello;
+
+
+import modelli.Livello;
 	import connessioneDB.DbConnection;
 
 public class LivelloDAO {
@@ -29,6 +31,15 @@ public class LivelloDAO {
 			
 			
 			return liv;
+		}
+		
+public boolean InserisciLivello(Livello livello) {
+			
+			
+			String sql = "INSERT INTO livello VALUES('" +livello.getNomelivello()+ "' )";
+			System.out.println(sql);
+			return DbConnection.getInstance().eseguiAggiornamento(sql);
+			
 		}
 	}
 

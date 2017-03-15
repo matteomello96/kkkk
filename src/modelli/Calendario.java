@@ -4,6 +4,7 @@ import java.time.Year;
 
 import dao.CalendarioDAO;
 
+
 public class Calendario {
   private String nomecalendario;
   private Year annovalidita;
@@ -23,6 +24,11 @@ public void setAnnovalidita(Year annovalidita) {
 public static Calendario CercaCalendarioperNome(String nome) {
 	return CalendarioDAO.getInstance().CercaperNome(nome);
 }
-
+public boolean InserisciCalendario() {
+	return CalendarioDAO.getInstance().InserisciCalendario(this);
+}
+public static Calendario CercaCalendarioperAnnovalidita(Year anno) {
+	return CalendarioDAO.getInstance().CercaperAnnoValidita(anno);
+}
 
 }

@@ -11,8 +11,8 @@ public class Tesserato extends Utentegenerico{
 	
 	
 
-public Tesserato(String username, String pass) {
-	super();
+public Tesserato (String username, String pass) {
+	
     this.username=username;
     this.pass=pass;
 	}

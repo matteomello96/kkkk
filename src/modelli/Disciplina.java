@@ -7,14 +7,15 @@ import dao.DisciplinaDAO;
 
 
 
+
 public class Disciplina {
 	private String nomedisciplina;
 	private String descrizione;
-	private float costomensile;
-	private int maxiscrittiturno;
+	
+	
 	private Object immagine;
 	private Calendario calendario;
-	private Livello livello;
+	
 
 
 	public String getNomedisciplina() {
@@ -33,21 +34,6 @@ public class Disciplina {
 		this.descrizione = descrizione;
 	}
 
-	public float getCostomensile() {
-		return costomensile;
-	}
-
-	public void setCostomensile(float costomensile) {
-		this.costomensile = costomensile;
-	}
-
-	public int getMaxiscrittiturno() {
-		return maxiscrittiturno;
-	}
-
-	public void setMaxiscrittiturno(int maxiscrittiturno) {
-		this.maxiscrittiturno = maxiscrittiturno;
-	}
 
 	public Object getImmagine() {
 		return this.immagine;
@@ -65,12 +51,8 @@ public class Disciplina {
 		this.calendario = calendario;
 	}
 
-	public Livello getLivello() {
-		return livello;
-	}
-
-	public void setLivello(Livello livello) {
-		this.livello = livello;
+	public boolean InserisciDisciplina() {
+		return DisciplinaDAO.getInstance().InserisciDisciplina(this);
 	}
 	public static Disciplina CercaDisciplinaperNome(String nomedisciplina) throws IOException {
 		return DisciplinaDAO.getInstance().CercaperNome(nomedisciplina);
