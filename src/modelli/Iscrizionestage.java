@@ -6,8 +6,7 @@ import dao.IscrizionestageDAO;
 public class Iscrizionestage extends Iscrizioneevento {
 	private int codiceiscrizionestage;
 	private Stage stage;
-	//Manca il campo note note
-	
+   private String note;	
 
 	public int getCodiceiscrizionestage() {
 		return codiceiscrizionestage;
@@ -27,4 +26,12 @@ public class Iscrizionestage extends Iscrizioneevento {
 public static Iscrizionestage CercaIscrizionestageperCodice(int codiceiscrizionestage) {
 		return IscrizionestageDAO.getInstance().CercaperCodice(codiceiscrizionestage);
 	}
+
+public String getNote() {
+	return note;
+}
+
+public void setNote(String note) {
+	this.note = note;
+}
 }

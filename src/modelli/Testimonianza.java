@@ -10,7 +10,7 @@ public class Testimonianza
     private String commento;
 	private Date dataazione;
 	private Tesserato tesserato;
-	private Disciplina disciplina;
+	private Disciplinedisponibili disciplinedisponibili;
 	
 	public Date getDataazione() {
 		return dataazione;
@@ -36,13 +36,7 @@ public class Testimonianza
 		this.commento = commento;
 	}
 
-	public Disciplina getDisciplina() {
-		return disciplina;
-	}
 
-	public void setDisciplina(Disciplina disciplina) {
-		this.disciplina = disciplina;
-	}
 	public static Testimonianza CercaTestimonianzaperCodice(int codicetestimonianza) throws IOException {
 		return TestimonianzaDAO.getInstance().CercaperCodice(codicetestimonianza);
 	}
@@ -53,6 +47,14 @@ public class Testimonianza
 
 	public void setCodicetestimonianza(int codicetestimonianza) {
 		this.codicetestimonianza = codicetestimonianza;
+	}
+
+	public Disciplinedisponibili getDisciplinedisponibili() {
+		return disciplinedisponibili;
+	}
+
+	public void setDisciplinedisponibili(Disciplinedisponibili disciplinedisponibili) {
+		this.disciplinedisponibili = disciplinedisponibili;
 	}
 	
 	
