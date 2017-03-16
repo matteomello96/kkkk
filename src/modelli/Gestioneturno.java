@@ -38,4 +38,3 @@ public class Gestioneturno {
 		this.spazio = spazio;
 	}
 }
-
