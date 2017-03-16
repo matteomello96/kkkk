@@ -6,10 +6,11 @@ import java.util.Scanner;
 
 import dao.IscrizionegaraDAO;
 
-public class Iscrizionegara {
+public class Iscrizionegara extends Iscrizioneevento {
 	private int codiceiscrizionegara;
 	private File certificatoRC;
 	private Gara gara;
+	//manca il campo note
 	public int getCodiceiscrizionegara() {
 		return codiceiscrizionegara;
 	}

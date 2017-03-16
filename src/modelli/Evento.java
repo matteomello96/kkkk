@@ -9,7 +9,7 @@ public class Evento
 	private String descrizione;
 	private Infopagamento infopagamento;
 	private Float costoevento;
-	private Livello livello;
+	private Disciplinedisponibili disciplinedisponibili;
     private Istruttore istruttore;
     
     
@@ -18,14 +18,14 @@ public class Evento
     	super();
     }
     
-    public Evento(String nomeevento, Date dataevento, String descrizione,Infopagamento infopagamento, Float costoevento, Livello livello, Istruttore istruttore) {
+    public Evento(String nomeevento, Date dataevento, String descrizione,Infopagamento infopagamento, Float costoevento, Disciplinedisponibili disciplinedisponibili, Istruttore istruttore) {
 		super();
 		this.nomeevento=nomeevento;
 		this.dataevento=dataevento;
 		this.descrizione=descrizione;
 		this.infopagamento=infopagamento;
 		this.costoevento=costoevento;
-		this.livello=livello;
+		this.disciplinedisponibili=disciplinedisponibili;
 	    this.istruttore=istruttore;
 	    
 	}
@@ -70,13 +70,7 @@ public class Evento
 		this.costoevento = costoevento;
 	}
 
-	public Livello getLivello() {
-		return livello;
-	}
 
-	public void setLivello(Livello livello) {
-		this.livello = livello;
-	}
 
 	public Istruttore getIstruttore() {
 		return istruttore;
@@ -84,6 +78,14 @@ public class Evento
 
 	public void setIstruttore(Istruttore istruttore) {
 		this.istruttore = istruttore;
+	}
+
+	public Disciplinedisponibili getDisciplinedisponibili() {
+		return disciplinedisponibili;
+	}
+
+	public void setDisciplinedisponibili(Disciplinedisponibili disciplinedisponibili) {
+		this.disciplinedisponibili = disciplinedisponibili;
 	}
 
 	    }

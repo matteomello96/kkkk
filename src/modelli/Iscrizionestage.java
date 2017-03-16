@@ -3,9 +3,10 @@ package modelli;
 
 import dao.IscrizionestageDAO;
 
-public class Iscrizionestage {
+public class Iscrizionestage extends Iscrizioneevento {
 	private int codiceiscrizionestage;
 	private Stage stage;
+	//Manca il campo note note
 	
 
 	public int getCodiceiscrizionestage() {
