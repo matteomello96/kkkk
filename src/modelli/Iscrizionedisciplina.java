@@ -8,20 +8,17 @@ import dao.IscrizionedisciplinaDAO;
 public class Iscrizionedisciplina extends Iscrizioneevento{
 
 	private int codiceiscrizionedisciplina;
-	private Fasciaoraria fasciapreferita;
+	
 	private Disciplina disciplina;
+	private Disciplinedisponibili disciplinedisponibili;
 	public int getCodiceiscrizionedisciplina() {
 		return codiceiscrizionedisciplina;
 	}
 	public void setCodiceiscrizionedisciplina(int codiceiscrizionedisciplina) {
 		this.codiceiscrizionedisciplina = codiceiscrizionedisciplina;
 	}
-	public Fasciaoraria getFasciapreferita() {
-		return fasciapreferita;
-	}
-	public void setFasciapreferita(Fasciaoraria fasciapreferita) {
-		this.fasciapreferita = fasciapreferita;
-	}
+	
+	
 	public Disciplina getDisciplina() {
 		return disciplina;
 	}
@@ -30,6 +27,12 @@ public class Iscrizionedisciplina extends Iscrizioneevento{
 	}
 	public static Iscrizionedisciplina cercaIscrizionedisciplinaperCodice(int codiceiscrizionedisciplina) throws IOException {
 		return IscrizionedisciplinaDAO.getInstance().CercaperCodice(codiceiscrizionedisciplina);
+	}
+	public Disciplinedisponibili getDisciplinedisponibili() {
+		return disciplinedisponibili;
+	}
+	public void setDisciplinedisponibili(Disciplinedisponibili disciplinedisponibili) {
+		this.disciplinedisponibili = disciplinedisponibili;
 	}
 	
 	
