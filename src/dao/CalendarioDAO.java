@@ -32,6 +32,20 @@ public class CalendarioDAO {
 			
 			return cal;
 		}
+		public Calendario VisualizzaCalendario(Year annovalidita,String anno) {
+
+			Calendario cal = new Calendario();
+			
+			ArrayList<String[]> result = DbConnection.getInstance().eseguiQuery("SELECT * FROM calendario ");
+			
+			if(result.size() == 0) return null;
+			
+			String[] riga = result.get(0);
+			
+			cal.setNomecalendario(riga[0]);
+			cal.setAnnovalidita(Year.parse(riga[1]));
+			return cal;
+		}
 		public Calendario CercaperAnnoValidita(Year annovalidita) {
 
 			Calendario cal = new Calendario();

@@ -1,6 +1,6 @@
 package modelli;
 
-public class Sceltaorarioperiscrizione {
+public class Sceltaorariperiscrizione {
 	private Fasciaoraria preferenzafascia;
 	private Iscrizionedisciplina iscrizionedisciplina;
 	public Fasciaoraria getPreferenzafascia() {

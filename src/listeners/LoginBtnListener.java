@@ -1,8 +1,8 @@
 package listeners;
 import business.Tesseratobusiness;
-import viste.vistaTesserato;
 import viste.LoginWindows2;
- 
+import viste.SecondFrame;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
  
@@ -27,7 +27,7 @@ private LoginWindows2 loginWindows2;
         boolean tesseratoEsiste = Tesseratobusiness.getInstance().verificaTesserato(username, pass);
         if(tesseratoEsiste){
             JOptionPane.showMessageDialog(null, "Benvenuto!");
-        new vistaTesserato();
+        new SecondFrame(null);
         loginWindows2.dispose();
             }
         else{JOptionPane.showMessageDialog(null, "Utente non presente!");
