@@ -9,7 +9,7 @@ public class Iscrizionedisciplina extends Iscrizioneevento{
 
 	private int codiceiscrizionedisciplina;
 	
-	private Disciplina disciplina;
+	
 	private Disciplinedisponibili disciplinedisponibili;
 	public int getCodiceiscrizionedisciplina() {
 		return codiceiscrizionedisciplina;
@@ -19,12 +19,8 @@ public class Iscrizionedisciplina extends Iscrizioneevento{
 	}
 	
 	
-	public Disciplina getDisciplina() {
-		return disciplina;
-	}
-	public void setDisciplina(Disciplina disciplina) {
-		this.disciplina = disciplina;
-	}
+	
+	
 	public static Iscrizionedisciplina cercaIscrizionedisciplinaperCodice(int codiceiscrizionedisciplina) throws IOException {
 		return IscrizionedisciplinaDAO.getInstance().CercaperCodice(codiceiscrizionedisciplina);
 	}
@@ -34,6 +30,9 @@ public class Iscrizionedisciplina extends Iscrizioneevento{
 	public void setDisciplinedisponibili(Disciplinedisponibili disciplinedisponibili) {
 		this.disciplinedisponibili = disciplinedisponibili;
 	}
-	
+
+	public static Iscrizionedisciplina cercaIscrizionedisciplinaperModalitapagamento(Modalitapagamento modalitapagamento) throws IOException {
+		return IscrizionedisciplinaDAO.getInstance().CercaperModalitapagamento(modalitapagamento);
+	}
 	
 }
