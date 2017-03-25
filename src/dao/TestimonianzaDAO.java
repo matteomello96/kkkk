@@ -7,7 +7,7 @@ import java.util.Date;
 
 import connessioneDB.DbConnection;
 
-import modelli.Disciplina;
+import modelli.Disciplinedisponibili;
 import modelli.Tesserato;
 import modelli.Testimonianza;
 
@@ -46,8 +46,8 @@ import modelli.Testimonianza;
 			Tesserato tesserato = TesseratoDAO.getInstance().CercaperMatricola(Integer.parseInt(riga[3]));
 			text.setTesserato(tesserato);
 			
-			Disciplina disciplina = DisciplinaDAO.getInstance().CercaperNome(riga[4]);
-			text.setDisciplina(disciplina);
+			Disciplinedisponibili disciplinedisponibili = DisciplinedisponibiliDAO.getInstance().CercaperCombinazione(Integer.parseInt(riga[4]));
+			text.setDisciplinedisponibili(disciplinedisponibili);
 			
 			
 			return text;

@@ -1,6 +1,8 @@
 package modelli;
 
 
+import java.io.IOException;
+
 import dao.IscrizionestageDAO;
 
 public class Iscrizionestage extends Iscrizioneevento {
@@ -23,7 +25,7 @@ public class Iscrizionestage extends Iscrizioneevento {
 	public void setStage(Stage stage) {
 		this.stage = stage;
 	}
-public static Iscrizionestage CercaIscrizionestageperCodice(int codiceiscrizionestage) {
+public static Iscrizionestage CercaIscrizionestageperCodice(int codiceiscrizionestage) throws IOException {
 		return IscrizionestageDAO.getInstance().CercaperCodice(codiceiscrizionestage);
 	}
 

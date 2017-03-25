@@ -1,5 +1,6 @@
 package dao;
 
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -9,7 +10,7 @@ import connessioneDB.DbConnection;
 import modelli.Stage;
 import modelli.Evento;
 import modelli.Infopagamento;
-import modelli.Livello;
+import modelli.Disciplinedisponibili;
 import modelli.Istruttore;
 
 	public class StageDAO {
@@ -22,7 +23,7 @@ import modelli.Istruttore;
 			return instance;
 		}
 
-		public Stage CercaperCodice(int codicestage) {
+		public Stage CercaperCodice(int codicestage) throws  IOException {
 			
 			Stage st = new Stage();
 			
@@ -47,8 +48,8 @@ import modelli.Istruttore;
 			evento.setDescrizione(riga[3]);
 			Infopagamento.TrovaperInfopagamento(riga[4]);
 			evento.setCostoevento(Float.parseFloat((riga[5])));
-			Livello livello = LivelloDAO.getInstance().CercaperNome(riga[6]);
-			st.setLivello(livello);
+			Disciplinedisponibili disciplinedisponibili = DisciplinedisponibiliDAO.getInstance().CercaperCombinazione(Integer.parseInt(riga[6]));
+			st.setDisciplinedisponibili(disciplinedisponibili);
 			Istruttore istruttore = IstruttoreDAO.getInstance().CercaperMatricola(Integer.parseInt((riga[7])));
 			st.setIstruttore(istruttore);
 			return st;

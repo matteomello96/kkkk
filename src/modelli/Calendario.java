@@ -30,5 +30,8 @@ public boolean InserisciCalendario() {
 public static Calendario CercaCalendarioperAnnovalidita(Year anno) {
 	return CalendarioDAO.getInstance().CercaperAnnoValidita(anno);
 }
+public static Calendario VisualizzaCalendario(Year anno,String nome) {
+	return CalendarioDAO.getInstance().VisualizzaCalendario(anno,nome);
+}
 
 }

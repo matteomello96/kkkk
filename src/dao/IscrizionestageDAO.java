@@ -1,5 +1,6 @@
 package dao;
 
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -23,7 +24,7 @@ import modelli.Iscrizionestage;
 			return instance;
 		}
 
-		public Iscrizionestage CercaperCodice(int codiceiscrizionestage) {
+		public Iscrizionestage CercaperCodice(int codiceiscrizionestage) throws IOException {
 			
 			Iscrizionestage is = new Iscrizionestage();
 			

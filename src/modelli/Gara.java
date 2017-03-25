@@ -1,5 +1,7 @@
 package modelli;
 
+import java.io.IOException;
+
 import dao.GaraDAO;
 
 public class Gara extends Evento {
@@ -13,7 +15,7 @@ public class Gara extends Evento {
 		this.codicegara = codicegara;
 	}
 	
-	public static Gara CercaGaraperCodice(int codicegara) {
+	public static Gara CercaGaraperCodice(int codicegara) throws IOException {
 		return GaraDAO.getInstance().CercaperCodice(codicegara);
 	}
 }

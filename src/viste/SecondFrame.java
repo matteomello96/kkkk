@@ -113,7 +113,7 @@ public class SecondFrame extends JFrame {
 		pnlWithImg=new JPanel();
 		
 		
-		/*
+		
 		nord = new JButton("Nord");
 		ovest = new JButton("Ovest");
 		centro = new JButton("Centro");
@@ -125,7 +125,7 @@ public class SecondFrame extends JFrame {
 		getContentPane().add(centro, BorderLayout.CENTER);
 		getContentPane().add(est, BorderLayout.EAST);
 		getContentPane().add(sud, BorderLayout.SOUTH);
-		*/
+		
 
 		
 		readTabelBtn = new JButton("Leggi tabella");
