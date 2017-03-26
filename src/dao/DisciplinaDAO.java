@@ -46,6 +46,30 @@ import modelli.Disciplina;
 			
 			return dis;
 		}
+		
+		
+		
+		
+public Disciplina CercaperCalendario(Calendario calendario) throws IOException {
+			
+			Disciplina dis = new Disciplina();
+			
+			ArrayList<String[]> result = DbConnection.getInstance().eseguiQuery("SELECT * FROM disciplina WHERE calendario='"+calendario+"' ");
+			
+			if(result.size() == 0) return null;
+			
+			String[] riga = result.get(0);
+			
+			dis.setNomedisciplina(riga[0]);
+			
+			dis.setImmagine((Object)riga[3]);
+			Calendario cal = CalendarioDAO.getInstance().CercaperNome(riga[4]);
+			dis.setCalendario(cal);
+			
+
+			
+			return dis;
+		}
 public boolean InserisciDisciplina(Disciplina disciplina) {
 			
 			//nomecalendario,annovalidita

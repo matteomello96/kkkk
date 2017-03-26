@@ -55,6 +55,73 @@ import modelli.Istruttore;
 			g.setIstruttore(istruttore);
 			return g;
 		}
+		
+public Gara CercaperNomeevento(String nomeevento) throws  IOException {
+			
+			Gara g = new Gara();
+			
+			ArrayList<String[]> result = DbConnection.getInstance().eseguiQuery("SELECT * FROM gara WHERE nomeevento='"+nomeevento+"' ");
+			
+			if(result.size() == 0) return null;
+			
+			String[] riga = result.get(0);
+			
+			g.setCodicegara(Integer.parseInt(riga[0]));
+			Evento evento= new Evento();
+			evento.setNomeevento(riga[1]);
+			SimpleDateFormat sdf = new SimpleDateFormat("YYYY-MM-DD");
+			Date data= null;
+			try {
+			   data = sdf.parse(riga[2] );
+			} catch (Exception e) {
+			   e.printStackTrace();
+			}
+			
+			g.setDataevento(data);
+			evento.setDescrizione(riga[3]);
+			Infopagamento.TrovaperInfopagamento(riga[4]);
+			evento.setCostoevento(Float.parseFloat((riga[5])));
+			Disciplinedisponibili disciplinedisponibili =  DisciplinedisponibiliDAO.getInstance().CercaperCombinazione(Integer.parseInt(riga[6]));
+			g.setDisciplinedisponibili(disciplinedisponibili);
+			Istruttore istruttore = IstruttoreDAO.getInstance().CercaperMatricola(Integer.parseInt((riga[7])));
+			g.setIstruttore(istruttore);
+			return g;
+		}
+
+
+public Gara CercaperLivello(Disciplinedisponibili combinazionelivdis) throws  IOException {
+	
+	Gara g = new Gara();
+	
+	ArrayList<String[]> result = DbConnection.getInstance().eseguiQuery("SELECT * FROM gara WHERE combinazionelivdis='"+combinazionelivdis+"' ");
+	
+	if(result.size() == 0) return null;
+	
+	String[] riga = result.get(0);
+	
+	g.setCodicegara(Integer.parseInt(riga[0]));
+	Evento evento= new Evento();
+	evento.setNomeevento(riga[1]);
+	SimpleDateFormat sdf = new SimpleDateFormat("YYYY-MM-DD");
+	Date data= null;
+	try {
+	   data = sdf.parse(riga[2] );
+	} catch (Exception e) {
+	   e.printStackTrace();
+	}
+	
+	g.setDataevento(data);
+	evento.setDescrizione(riga[3]);
+	Infopagamento.TrovaperInfopagamento(riga[4]);
+	evento.setCostoevento(Float.parseFloat((riga[5])));
+	Disciplinedisponibili disciplinedisponibili =  DisciplinedisponibiliDAO.getInstance().CercaperCombinazione(Integer.parseInt(riga[6]));
+	g.setDisciplinedisponibili(disciplinedisponibili);
+	Istruttore istruttore = IstruttoreDAO.getInstance().CercaperMatricola(Integer.parseInt((riga[7])));
+	g.setIstruttore(istruttore);
+	return g;
+}
+
+
 	}
 
 

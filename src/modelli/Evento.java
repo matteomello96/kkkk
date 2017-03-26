@@ -11,7 +11,7 @@ public class Evento
 	private Float costoevento;
 	private Disciplinedisponibili disciplinedisponibili;
     private Istruttore istruttore;
-    
+   
     
     public Evento()
     {
