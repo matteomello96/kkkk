@@ -37,9 +37,9 @@ import modelli.Disciplina;
 			String[] riga = result.get(0);
 			
 			dis.setNomedisciplina(riga[0]);
-			
-			dis.setImmagine((Object)riga[3]);
-			Calendario calendario = CalendarioDAO.getInstance().CercaperNome(riga[4]);
+			dis.setDescrizione(riga[1]);
+			dis.setImmagine((Object)riga[2]);
+			Calendario calendario = CalendarioDAO.getInstance().CercaperNome(riga[3]);
 			dis.setCalendario(calendario);
 			
 
@@ -61,9 +61,9 @@ public Disciplina CercaperCalendario(Calendario calendario) throws IOException {
 			String[] riga = result.get(0);
 			
 			dis.setNomedisciplina(riga[0]);
-			
-			dis.setImmagine((Object)riga[3]);
-			Calendario cal = CalendarioDAO.getInstance().CercaperNome(riga[4]);
+			dis.setDescrizione(riga[1]);
+			dis.setImmagine((Object)riga[2]);
+			Calendario cal = CalendarioDAO.getInstance().CercaperNome(riga[3]);
 			dis.setCalendario(cal);
 			
 
