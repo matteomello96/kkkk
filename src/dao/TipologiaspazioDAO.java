@@ -33,5 +33,25 @@ public class TipologiaspazioDAO {
 			
 			return ts;
 		}
+		
+		public Tipologiaspazio CercaperSpazio(Spazio spazio) {
+
+			Tipologiaspazio ts = new Tipologiaspazio();
+			
+			ArrayList<String[]> result = DbConnection.getInstance().eseguiQuery("SELECT * FROM tipologiaspazio WHERE spazio='"+spazio+"' ");
+			
+			if(result.size() == 0) return null;
+			
+			String[] riga = result.get(0);
+			
+			ts.setNometipologia(riga[0]);
+			Spazio spa = SpazioDAO.getInstance().CercaperNome(riga[4]);
+			ts.setSpazio(spa);
+			
+			
+			
+			
+			return ts;
+		}
 	}
 

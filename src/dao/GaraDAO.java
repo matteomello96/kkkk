@@ -121,7 +121,99 @@ public Gara CercaperLivello(Disciplinedisponibili combinazionelivdis) throws  IO
 	return g;
 }
 
-
+public Gara CercaperIstruttore(String istruttore) throws  IOException {
+	
+	Gara g = new Gara();
+	
+	ArrayList<String[]> result = DbConnection.getInstance().eseguiQuery("SELECT * FROM gara WHERE istruttore='"+istruttore+"' ");
+	
+	if(result.size() == 0) return null;
+	
+	String[] riga = result.get(0);
+	
+	g.setCodicegara(Integer.parseInt(riga[0]));
+	Evento evento= new Evento();
+	evento.setNomeevento(riga[1]);
+	SimpleDateFormat sdf = new SimpleDateFormat("YYYY-MM-DD");
+	Date data= null;
+	try {
+	   data = sdf.parse(riga[2] );
+	} catch (Exception e) {
+	   e.printStackTrace();
+	}
+	
+	g.setDataevento(data);
+	evento.setDescrizione(riga[3]);
+	Infopagamento.TrovaperInfopagamento(riga[4]);
+	evento.setCostoevento(Float.parseFloat((riga[5])));
+	Disciplinedisponibili disciplinedisponibili =  DisciplinedisponibiliDAO.getInstance().CercaperCombinazione(Integer.parseInt(riga[6]));
+	g.setDisciplinedisponibili(disciplinedisponibili);
+	Istruttore ist = IstruttoreDAO.getInstance().CercaperMatricola(Integer.parseInt((riga[7])));
+	g.setIstruttore(ist);
+	return g;
+}
+public Gara CercaperDataevento(Date dataevento) throws  IOException {
+	
+	Gara g = new Gara();
+	
+	ArrayList<String[]> result = DbConnection.getInstance().eseguiQuery("SELECT * FROM gara WHERE dataevento='"+dataevento+"' ");
+	
+	if(result.size() == 0) return null;
+	
+	String[] riga = result.get(0);
+	
+	g.setCodicegara(Integer.parseInt(riga[0]));
+	Evento evento= new Evento();
+	evento.setNomeevento(riga[1]);
+	SimpleDateFormat sdf = new SimpleDateFormat("YYYY-MM-DD");
+	Date data= null;
+	try {
+	   data = sdf.parse(riga[2] );
+	} catch (Exception e) {
+	   e.printStackTrace();
+	}
+	
+	g.setDataevento(data);
+	evento.setDescrizione(riga[3]);
+	Infopagamento.TrovaperInfopagamento(riga[4]);
+	evento.setCostoevento(Float.parseFloat((riga[5])));
+	Disciplinedisponibili disciplinedisponibili =  DisciplinedisponibiliDAO.getInstance().CercaperCombinazione(Integer.parseInt(riga[6]));
+	g.setDisciplinedisponibili(disciplinedisponibili);
+	Istruttore istruttore = IstruttoreDAO.getInstance().CercaperMatricola(Integer.parseInt((riga[7])));
+	g.setIstruttore(istruttore);
+	return g;
+}
+public Gara CercaperCosto(float costoevento) throws  IOException {
+	
+	Gara g = new Gara();
+	
+	ArrayList<String[]> result = DbConnection.getInstance().eseguiQuery("SELECT * FROM gara WHERE costoevento='"+costoevento+"' ");
+	
+	if(result.size() == 0) return null;
+	
+	String[] riga = result.get(0);
+	
+	g.setCodicegara(Integer.parseInt(riga[0]));
+	Evento evento= new Evento();
+	evento.setNomeevento(riga[1]);
+	SimpleDateFormat sdf = new SimpleDateFormat("YYYY-MM-DD");
+	Date data= null;
+	try {
+	   data = sdf.parse(riga[2] );
+	} catch (Exception e) {
+	   e.printStackTrace();
+	}
+	
+	g.setDataevento(data);
+	evento.setDescrizione(riga[3]);
+	Infopagamento.TrovaperInfopagamento(riga[4]);
+	evento.setCostoevento(Float.parseFloat((riga[5])));
+	Disciplinedisponibili disciplinedisponibili =  DisciplinedisponibiliDAO.getInstance().CercaperCombinazione(Integer.parseInt(riga[6]));
+	g.setDisciplinedisponibili(disciplinedisponibili);
+	Istruttore istruttore = IstruttoreDAO.getInstance().CercaperMatricola(Integer.parseInt((riga[7])));
+	g.setIstruttore(istruttore);
+	return g;
+}
 	}
 
 

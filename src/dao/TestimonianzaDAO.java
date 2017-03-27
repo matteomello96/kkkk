@@ -52,6 +52,69 @@ import modelli.Testimonianza;
 			
 			return text;
 		}
+		
+		
+public Testimonianza CercaperTesserato(Tesserato tesserato) throws IOException {
+			
+			Testimonianza text = new Testimonianza();
+			
+			ArrayList<String[]> result = DbConnection.getInstance().eseguiQuery("SELECT * FROM iscrizionedisciplina WHERE tesserato='"+tesserato+"' ");
+			
+			if(result.size() == 0) return null;
+			
+			String[] riga = result.get(0);
+			
+			text.setCodicetestimonianza(Integer.parseInt(riga[0]));
+			text.setCommento(riga[1]);
+			SimpleDateFormat sdf = new SimpleDateFormat("YYYY-MM-DD");
+			Date data= null;
+			try {
+			   data = sdf.parse(riga[2] );
+			} catch (Exception e) {
+			   e.printStackTrace();
+			}
+			
+			text.setDataazione(data);
+			Tesserato tess = TesseratoDAO.getInstance().CercaperMatricola(Integer.parseInt(riga[3]));
+			text.setTesserato(tess);
+			
+			Disciplinedisponibili disciplinedisponibili = DisciplinedisponibiliDAO.getInstance().CercaperCombinazione(Integer.parseInt(riga[4]));
+			text.setDisciplinedisponibili(disciplinedisponibili);
+			
+			
+			return text;
+		}
+
+public Testimonianza CercaperCombinazione(Disciplinedisponibili combinazionelivdis) throws IOException {
+	
+	Testimonianza text = new Testimonianza();
+	
+	ArrayList<String[]> result = DbConnection.getInstance().eseguiQuery("SELECT * FROM iscrizionedisciplina WHERE combinazionelivdis='"+combinazionelivdis+"' ");
+	
+	if(result.size() == 0) return null;
+	
+	String[] riga = result.get(0);
+	
+	text.setCodicetestimonianza(Integer.parseInt(riga[0]));
+	text.setCommento(riga[1]);
+	SimpleDateFormat sdf = new SimpleDateFormat("YYYY-MM-DD");
+	Date data= null;
+	try {
+	   data = sdf.parse(riga[2] );
+	} catch (Exception e) {
+	   e.printStackTrace();
+	}
+	
+	text.setDataazione(data);
+	Tesserato tesserato = TesseratoDAO.getInstance().CercaperMatricola(Integer.parseInt(riga[3]));
+	text.setTesserato(tesserato);
+	
+	Disciplinedisponibili disciplinedisponibili = DisciplinedisponibiliDAO.getInstance().CercaperCombinazione(Integer.parseInt(riga[4]));
+	text.setDisciplinedisponibili(disciplinedisponibili);
+	
+	
+	return text;
+}
 	}
 
 
